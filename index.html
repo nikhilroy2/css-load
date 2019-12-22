@@ -1,62 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-    .parent{
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
-    }
-    .child{
-        margin: 4px;
-        position: relative;
-        overflow: hidden;
-    }
-    .child:nth-child(odd){
-        width: 505px;
-        height: 182px;
-    }
-    .child:nth-child(even){
-        width: 300px;
-        height: 227px;
-    }
-  
-    .child::before{
-        content: '';
-        width: 50px;
-        height: 200%;
-        background: linear-gradient(44deg, #fff, #fff);
-        position: absolute;
-        top: -50%;
-        left: 0px;
-        animation: .6s ease-out infinite childLoad;
-        transform: rotate(8deg);
-        filter: blur(2px);
-    }
+        .parent {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+        }
 
-  
-    @keyframes childLoad{
-        0%{
+        .child {
+            margin: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .child:nth-child(odd) {
+            width: 505px;
+            height: 182px;
+        }
+
+        .child:nth-child(even) {
+            width: 300px;
+            height: 227px;
+        }
+
+        .child::before {
+            content: '';
+            width: 50px;
+            height: 200%;
+            background: linear-gradient(44deg, #fff, #fff);
+            position: absolute;
+            top: -50%;
             left: 0px;
-            filter: blur(10px);
+            animation: .6s ease infinite childLoad;
+            transform: rotate(8deg);
+            filter: blur(2px);
+        }
 
-        }
-        20%, 80%{
-            filter: blur(20px);
-        }
-        100%{
-            left: 100%;
-            filter: blur(10px);
 
+        @keyframes childLoad {
+            0% {
+                left: 0px;
+                filter: blur(10px);
+
+            }
+
+            20%,
+            80% {
+                filter: blur(20px);
+            }
+
+            100% {
+                left: 100%;
+                filter: blur(10px);
+
+            }
         }
-    }
-    
     </style>
 </head>
+
 <body>
     <h2 style="text-align: center;">Example of css loading </h2>
     <div class="parent">
@@ -92,4 +99,5 @@
         </div>
     </div>
 </body>
+
 </html>
